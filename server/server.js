@@ -18,7 +18,10 @@ app.use(require('./routes/user.js'));
 
 
 mongoose.connect(process.env.URLDB, {useNewUrlParser: true}, (err, res) => {
-    if (err) throw err;
+    if (err) {
+        console.log("fallo en la conexion de la BD ", err);
+        throw err
+    };
     console.log('Base de datos ONLINE');
 });
 
